@@ -25,16 +25,14 @@ This is a movie library web application built using React for the frontend, Node
    - Install frontend dependencies: `npm install`
    - Navigate back to the root directory: `cd ..`
    - Navigate to the backend directory: `cd backend`
-   - Install backend dependencies: `npm run dev`
+   - Install backend dependencies: `npm install`
 3. **Set Up Environment Variables**: Create a `.env` file in the backend directory and add your MongoDB connection URI and any other necessary environment variables.
 4. **Run the Application**:
    - Start the backend server: `npm start` (inside the backend directory)
-   - Start the frontend server: `npm start` (inside the frontend directory)
+   - Start the frontend server: `npm run dev` (inside the frontend directory)
 5. **Access the Application**: Visit `http://localhost:3000` in your web browser to access the application.
 
-## Hosting
 
-The application can be hosted on platforms like Netlify (for the frontend) and Heroku (for the backend).
 
 ## Links
 
