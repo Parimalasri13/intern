@@ -9,15 +9,18 @@ import Registration from "./Pages/Registration";
 import ResetPasswordForm from "./Pages/ForgetPassword";
 import MainLayout from "./layouts/MainLayout";
 import HeroPage from "./Pages/Hero";
+import PersistLogin from "./utils/persistLogin";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<HeroPage />} />
-        <Route element={<RequireAuth />}>
-          <Route path="/home" element={<Home />} />
-          <Route path="/read" element={<Read />} />
+        <Route element={<PersistLogin />}>
+          <Route element={<RequireAuth />}>
+            <Route path="/home" element={<Home />} />
+            <Route path="/read" element={<Read />} />
+          </Route>
         </Route>
         <Route path="/register" element={<Registration />} />
         <Route path="/forget-password" element={<ResetPasswordForm />} />
