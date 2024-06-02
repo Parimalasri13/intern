@@ -1,0 +1,50 @@
+.genre-movies {
+    margin: 20px 0;
+    text-align: left;
+    color:white;
+  }
+  
+  .genre-movies h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    text-align: left;
+  }
+  
+  .movie-card {
+    margin: 10px;
+    text-align: center;
+    position: relative; /* Add position relative to position child elements */
+  }
+  
+  .movie-card img {
+    width: 200px; /* Increase the width of the image */
+    height: 300px; /* Increase the height of the image */
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .movie-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+  }
+  
+  .movie-details p {
+    font-size: 14px;
+    margin: 5px 0 0 0;
+    width: 100%; /* Make sure the title spans the full width of the image */
+  }
+  
+  .wishlist-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    position: absolute; /* Position the button absolutely */
+    top: 5px; /* Adjust the position to place it 5px from the top */
+    right: 5px; /* Adjust the position to place it 5px from the right */
+    z-index: 10; /* Ensure the button is above the image */
+  }
+  

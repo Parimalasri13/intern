@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.lk{
+    padding: 20px;
+    text-decoration: none;
+    color:white;
+}
+
+.top-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures space between header and options */
+    background-color: #1c1c1c; /* Set your desired background color */
+    padding: 10px 20px; /* Adds some padding for better appearance */
+    flex-wrap: nowrap; /* Prevents wrapping of flex items */
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    font-family: 'Poetsen One', sans-serif; ;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    font-family: 'Poetsen One', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    white-space: nowrap; /* Prevents text from wrapping */
+}

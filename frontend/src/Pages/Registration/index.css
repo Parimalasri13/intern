@@ -1,0 +1,101 @@
+/* index.module.css */
+
+/* General styles */
+
+
+.wrapper {
+    width: 420px;
+    background: white; /* Semi-transparent white background */
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 30px 40px;
+    margin-top: 100px;
+    margin-left: 30%;
+}
+
+.wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+    color:black;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-box input {
+    width: 90%;
+    padding: 18px;
+    border: none;
+    background-color: rgb(199, 199, 199);
+    border-radius: 7px;
+    color: white;
+    outline: none;
+}
+
+.input-box input::placeholder {
+    color: black;
+}
+
+.input-box i {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: #ddd;
+}
+
+.remember_forget {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+.remember_forget label input {
+    accent-color: #fff;
+    text-decoration: none;
+}
+
+.remember_forget a {
+    color: #ddd;
+    text-decoration: underline;
+}
+
+.btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: #fff;
+    border-radius: 5px;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ddd;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #ddd;
+}
+
+.register-link a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
