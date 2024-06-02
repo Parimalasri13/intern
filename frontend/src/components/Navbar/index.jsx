@@ -45,6 +45,12 @@ function Navbar() {
           </>
         ) : (
           <>
+            <Link to="/home" className="lk">
+              Home
+            </Link>
+            <Link to="/read" className="lk">
+              Favorites
+            </Link>
             <Link to="/register" className="lk">
               Register
             </Link>
