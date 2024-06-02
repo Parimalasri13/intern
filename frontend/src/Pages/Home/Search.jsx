@@ -35,7 +35,7 @@ const Search = ({ query }) => {
       setLoading(true);
       try {
         const response = await Axios.get(
-          `http://www.omdbapi.com/?s=${query}&apikey=${API_KEY}`
+          `https://www.omdbapi.com/?s=${query}&apikey=${API_KEY}`
         );
         if (response.data.Response === "True") {
           setMovies(response.data.Search);

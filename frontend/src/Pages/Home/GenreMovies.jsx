@@ -34,7 +34,7 @@ const GenreMovies = ({ genre }) => {
     const fetchMovies = async () => {
       try {
         const response = await Axios.get(
-          `http://www.omdbapi.com/?s=${genre}&apikey=${API_KEY}`
+          `https://www.omdbapi.com/?s=${genre}&apikey=${API_KEY}`
         );
         if (response.data.Response === "True") {
           setMovies(response.data.Search);
