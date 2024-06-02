@@ -3,7 +3,28 @@ import "./index.css";
 import GenreMovies from "./GenreMovies";
 import Search from "./Search";
 
-const genres = ["Action", "Comedy", "Horror", "Family"];
+const genres = [
+  "Action",
+  "Comedy",
+  "Horror",
+  "Family",
+  "Science",
+  "Adventure",
+  "Drama",
+  "Fantasy",
+  "Romance",
+  "Thriller",
+  "Documentary",
+  "Animation",
+  "Mystery",
+  "Crime",
+  "Music",
+  "History",
+  "War",
+  "Western",
+  "Biography",
+  "Sport",
+];
 
 const ActiveSlider = () => {
   const [searchQuery, setSearchQuery] = useState("");
