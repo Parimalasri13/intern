@@ -1,6 +1,4 @@
-/* index.module.css */
 
-/* General styles */
 
 
 .wrapper {
@@ -47,23 +45,23 @@
     top: 50%;
     right: 15px;
     transform: translateY(-50%);
-    color: #ddd;
+    color: black;
 }
 
 .remember_forget {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
-    color: #ddd;
+    color: black;
 }
 
 .remember_forget label input {
-    accent-color: #fff;
+    accent-color: black;
     text-decoration: none;
 }
 
 .remember_forget a {
-    color: #ddd;
+    color: black;
     text-decoration: underline;
 }
 
@@ -91,7 +89,7 @@
 }
 
 .register-link a {
-    color: #fff;
+    color: black;
     text-decoration: none;
     font-weight: bold;
 }

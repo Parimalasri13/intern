@@ -68,7 +68,7 @@ const Registration = () => {
   };
 
   return (
-    <div className="wrapper">
+    <div id="registration-wrapper" className="wrapper">
       <form onSubmit={handleSubmit}>
         <h1>Registration</h1>
 
