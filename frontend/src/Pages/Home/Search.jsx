@@ -9,7 +9,7 @@ import useAuth from "../../hooks/useAuth";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-const GenreMovies = ({ genre }) => {
+const Search = ({ query }) => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [favs, setFavs] = useState([]);
@@ -32,9 +32,10 @@ const GenreMovies = ({ genre }) => {
 
   useEffect(() => {
     const fetchMovies = async () => {
+      setLoading(true);
       try {
         const response = await axios.get(
-          `http://www.omdbapi.com/?s=${genre}&apikey=${API_KEY}`
+          `http://www.omdbapi.com/?s=${query}&apikey=${API_KEY}`
         );
         if (response.data.Response === "True") {
           setMovies(response.data.Search);
@@ -49,7 +50,7 @@ const GenreMovies = ({ genre }) => {
     };
 
     fetchMovies();
-  }, [genre]);
+  }, [query]);
 
   const responsive = {
     superLargeDesktop: {
@@ -72,18 +73,22 @@ const GenreMovies = ({ genre }) => {
 
   return (
     <div className="genre-movies">
-      <h3 style={{ marginLeft: "20px" }}>{genre}</h3>
+      <h3 style={{ marginLeft: "20px" }}>Results for {query}</h3>
       {loading ? (
-        <p style={{ marginLeft: "20px" }}>Loading...</p>
-      ) : (
+        <p style={{ color: "white", marginLeft: "20px" }}>Loading...</p>
+      ) : movies.length > 0 ? (
         <Carousel responsive={responsive} infinite autoPlay>
           {movies.map((movie) => (
             <MovieCard movie={movie} favs={favs} />
           ))}
         </Carousel>
+      ) : (
+        <p style={{ color: "white", marginLeft: "20px" }}>
+          No movies to show :(
+        </p>
       )}
     </div>
   );
 };
 
-export default GenreMovies;
+export default Search;

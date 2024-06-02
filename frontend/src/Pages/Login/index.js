@@ -1,188 +1,95 @@
-// /* src/components/SignIn.jsx */
-// import React, { useState } from 'react';
-// import './index.css';
-// import axios from 'axios';
-
-// const SignIn = () => {
-//     const [username, setUsername] = useState('');
-//     const [password, setPassword] = useState('');
-//     async function handleSubmit(e) {
-//         e.preventDefault();
-//         try{
-//             const response =await axios.post('http://localhost:3001/signin', {
-//                 username,password
-//             })
-//             console.log(response);
-//             // const response = await fetch('http://localhost:3001/SignIn', {
-//             //     method: 'POST',
-//             //     headers: {
-//             //         'Content-Type': 'application/json'
-//             //     },
-//             //     body: JSON.stringify({
-//             //         username: username,
-//             //         password: password
-//             //     })
-//             // });
-//             // const data = await response.json();
-//             // if (data.error) {
-//             //     alert(data.error);
-//             // } else {
-//             //     alert('Registration successful!');
-//             // }
-//         }
-//         catch(e){
-//             console.log(e);
-//         }
-//     }
-
-//     const validateUsername = () => {
-//         const regx = /^[a-zA-Z]+$/;
-//         if (!regx.test(username)) {
-//             alert("Please enter a valid name");
-//             return false;
-//         }
-//         if (username.length < 6) {
-//             alert("UserName length should exceed 6 characters");
-//             return false;
-//         }
-//         return true;
-//     };
-
-//     const validatePassword = () => {
-//         const regx = /^[a-zA-Z0-9]+$/;
-//         if (!regx.test(password)) {
-//             alert("Please enter a valid password");
-//             return false;
-//         }
-//         if (password.length < 6) {
-//             alert("Password should exceed 6 characters");
-//             return false;
-//         }
-//         return true;
-//     };
-
- 
-
-//     return (
-//         <div className="wrapper">
-//             <form onSubmit={handleSubmit}>
-//                 <h1>Login</h1>
-
-//                 <div className="input-box">
-//                     <input
-//                         type="text"
-//                         placeholder="username"
-//                         name="username"
-//                         value={username}
-//                         onChange={(e) => setUsername(e.target.value)}
-//                         id="Uname"
-//                     />
-//                     <i className='bx bxs-user'></i>
-//                 </div>
-
-//                 <div className="input-box">
-//                     <input
-//                         type="password"
-//                         placeholder="Password"
-//                         name="password"
-//                         value={password}
-//                         onChange={(e) => setPassword(e.target.value)}
-//                         id="password"
-//                         required
-//                     />
-//                     <i className='bx bxs-lock-alt'></i>
-//                 </div>
-
-//                 <div className="remember_forget">
-//                     <label>
-//                         <input type="checkbox" /> Remember me
-//                     </label>
-//                     <a href="forget_password.html"> Forget Password</a>
-//                 </div>
-
-//                 <button type="submit" className="btn">Login</button>
-
-//                 <div className="register-link">
-//                     <p>Don't have an account? <a href="reg.html">Register</a></p>
-//                 </div>
-//             </form>
-//         </div>
-//     );
-// };
-
-// export default SignIn;
-
-
-import React, { useState } from 'react';
- 
-import axios from 'axios';
-import './index.css'
+import React, { useState } from "react";
+import useAuth from "../../hooks/useAuth";
+import axios from "../../api/axios";
+import "./index.css";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { showToast } from "../../components/Toast";
 
 const SignIn = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    async function handleSubmit(e) {
-        e.preventDefault();
-        try{
-            const response =await axios.post('http://localhost:3001/signin', {
-                username,password
-            })
-            console.log(response);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const { setAuth } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  async function handleSubmit(e) {
+    e.preventDefault();
+    let err = null;
+    try {
+      const response = await axios.post(
+        "/login",
+        {
+          name: username,
+          password,
+        },
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
         }
-        catch(e){
-            console.log(e);
-        }
+      );
+      const accessToken = response?.data?.accessToken;
+      setAuth({ name: username, accessToken });
+      showToast("", `Hi ${username}!`);
+      // Delay navigation to ensure toast is displayed
+      setTimeout(() => {
+        navigate(from, { replace: true });
+      }, 2000);
+    } catch (error) {
+      if (error?.response?.data?.message) err = error.response.data.message;
+      else err = error.message;
+    } finally {
+      if (err) {
+        showToast(err, "");
+      }
     }
+  }
 
-    // Validation functions...
+  // Validation functions...
 
-    return (
-        
-        <div className="wrapper"> {/* Use the styles from SignIn.module.css */}
-            <form onSubmit={handleSubmit}>
-                <h1>Login</h1>
-
-                <div className="input-box">
-                   <input
-                        type="text"
-                        placeholder="username"
-                        name="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        id="Uname"
-                    />
-                    <i className='bx bxs-user'></i>
-                </div>
-
-                <div className="input-box">
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        name="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        id="password"
-                        required
-                    />
-                    <i className='bx bxs-lock-alt'></i>
-                </div>
-
-                <div className="remember_forget">
-                    <label>
-                        <input type="checkbox" /> Remember me
-                    </label>
-                    <a href="/forget-password"> Forget Password</a>
-                </div>
-
-                <button type="submit" className="btn">Login</button>
-
-                <div className="register-link">
-                    <p className='para'>Don't have an account? <a href="/register">Register</a></p>
-                </div>
-            </form>
+  return (
+    <div className="wrapper">
+      <form onSubmit={handleSubmit}>
+        <h1>Login</h1>
+        <div className="input-box">
+          <input
+            type="text"
+            placeholder="username"
+            name="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            id="Uname"
+          />
+          <i className="bx bxs-user"></i>
         </div>
-        
-    );
+        <div className="input-box">
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            id="password"
+            required
+          />
+          <i className="bx bxs-lock-alt"></i>
+        </div>
+        <div className="remember_forget">
+          <a href="/forget-password"> Forget Password</a>
+        </div>
+        <button type="submit" className="btn">
+          Login
+        </button>
+        <div className="register-link">
+          <p className="para">
+            Don't have an account?{" "}
+            <Link style={{ color: "black" }} to="/register">
+              Register
+            </Link>
+          </p>
+        </div>
+      </form>
+    </div>
+  );
 };
 
 export default SignIn;

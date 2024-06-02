@@ -1,7 +1,7 @@
 .genre-movies {
   margin: 20px 0;
   text-align: left;
-  color:white;
+  color: white;
 }
 
 .genre-movies h3 {
@@ -43,7 +43,7 @@
   cursor: pointer;
   font-size: 20px;
   position: absolute; /* Position the button absolutely */
-  top: 5px; /* Adjust the position to place it 5px from the top */
-  right: 5px; /* Adjust the position to place it 5px from the right */
+  top: 0px; /* Adjust the position to place it 5px from the top */
+  right: 58px; /* Adjust the position to place it 5px from the right */
   z-index: 10; /* Ensure the button is above the image */
 }

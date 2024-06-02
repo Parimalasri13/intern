@@ -1,11 +1,13 @@
-import { Outlet } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import Navbar from "../components/Navbar";
+import PersistLogin from "../utils/persistLogin";
 
 const MainLayout = () => {
   return (
     <>
-     <Navbar/>
-      <Outlet />
+      <ToastContainer />
+      <Navbar />
+      <PersistLogin />
     </>
   );
 };
