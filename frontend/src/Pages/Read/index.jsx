@@ -9,7 +9,7 @@ import MovieCard from "../../components/MovieCard";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 const ReadFolder = () => {
-  const [favoriteMovies, setFavoriteMovies] = useState([]);
+  const [favoriteMovies, setFavoriteMovies] = useState(null);
   const axiosPrivate = useAxiosPrivate();
 
   useEffect(() => {
@@ -59,16 +59,20 @@ const ReadFolder = () => {
   return (
     <div className="genre-movies">
       <h3 style={{ marginLeft: "20px" }}>Favorite movies</h3>
-      {favoriteMovies.length > 0 ? (
-        <Carousel responsive={responsive} infinite autoPlay>
-          {favoriteMovies.map((movie) => (
-            <MovieCard movie={movie} from="favs" />
-          ))}
-        </Carousel>
+      {favoriteMovies ? (
+        favoriteMovies.length > 0 ? (
+          <Carousel responsive={responsive} infinite autoPlay>
+            {favoriteMovies.map((movie) => (
+              <MovieCard movie={movie} from="favs" />
+            ))}
+          </Carousel>
+        ) : (
+          <p style={{ color: "white", marginLeft: "20px" }}>
+            No favorites movies :( , Explore home page to add them!!
+          </p>
+        )
       ) : (
-        <p style={{ color: "white", marginLeft: "20px" }}>
-          No favorites movies :( , Explore home page to add them!!
-        </p>
+        <p style={{ color: "white", marginLeft: "20px" }}>Loading ...</p>
       )}
     </div>
   );

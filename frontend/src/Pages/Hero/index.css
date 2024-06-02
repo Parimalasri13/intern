@@ -1,5 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap");
 
+body {
+  overflow-y: visible;
+}
+
+/* Track */
+::-webkit-scrollbar {
+  width: 10px; /* Set the width of the scrollbar */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Set the color of the scrollbar handle */
+  border-radius: 5px; /* Add rounded corners to the scrollbar handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Change the color of the scrollbar handle on hover */
+}
+
 .hero-container {
   display: flex;
   justify-content: center;

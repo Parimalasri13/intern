@@ -10,8 +10,9 @@ function ResetPasswordForm() {
   const navigate = useNavigate();
 
   const validatePassword = (password) => {
-    const regx = /^[a-zA-Z]+$/;
-    return regx.test(password) && password.length > 6;
+    const regx =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return regx.test(password);
   };
 
   async function handleSubmit(e) {
@@ -19,7 +20,7 @@ function ResetPasswordForm() {
     let err = null;
     if (!validatePassword(password)) {
       showToast(
-        "Please enter a valid password and length should exceed 6 characters",
+        "Password must be at least 8 characters long and include at least one lowercase letter, one uppercase letter, one number, and one special character.",
         ""
       );
       return;

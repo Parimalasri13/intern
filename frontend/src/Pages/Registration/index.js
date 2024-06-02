@@ -13,21 +13,21 @@ const Registration = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     let err = null;
-    // if (!validateUsername(username)) {
-    //   showToast("Please enter a valid name", "");
-    //   return;
-    // }
+    if (!validateUsername(username)) {
+      showToast("Please enter a valid name (only alphabets allowed)", "");
+      return;
+    }
     if (!validateConfirmPassword(password, confirmPassword)) {
       showToast("Please enter the same Password and Confirm Password", "");
       return;
     }
-    // if (!validatePassword(password)) {
-    //   showToast(
-    //     "Please enter a valid password and length should exceed 6 characters",
-    //     ""
-    //   );
-    //   return;
-    // }
+    if (!validatePassword(password)) {
+      showToast(
+        "Password must be at least 8 characters long and include at least one lowercase letter, one uppercase letter, one number, and one special character.",
+        ""
+      );
+      return;
+    }
     try {
       await axios.post("/register", {
         name: username,
@@ -59,8 +59,9 @@ const Registration = () => {
   };
 
   const validatePassword = (password) => {
-    const regx = /^[a-zA-Z]+$/;
-    return regx.test(password) && password.length > 6;
+    const regx =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return regx.test(password);
   };
 
   const validateConfirmPassword = (password, confirmPassword) => {
