@@ -25,7 +25,7 @@ This is a movie library web application built using React for the frontend, Node
    - Install frontend dependencies: `npm install`
    - Navigate back to the root directory: `cd ..`
    - Navigate to the backend directory: `cd backend`
-   - Install backend dependencies: `npm install`
+   - Install backend dependencies: `npm run dev`
 3. **Set Up Environment Variables**: Create a `.env` file in the backend directory and add your MongoDB connection URI and any other necessary environment variables.
 4. **Run the Application**:
    - Start the backend server: `npm start` (inside the backend directory)
