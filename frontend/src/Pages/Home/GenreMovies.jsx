@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "../../api/axios";
+import Axios from "axios";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./GenreMovies.css";
@@ -33,7 +33,7 @@ const GenreMovies = ({ genre }) => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await axios.get(
+        const response = await Axios.get(
           `http://www.omdbapi.com/?s=${genre}&apikey=${API_KEY}`
         );
         if (response.data.Response === "True") {
