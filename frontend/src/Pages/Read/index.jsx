@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "../../api/axios";
+import Axios from "axios";
 import useAxiosPrivate from "../../hooks/useAxiosprivate";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -20,7 +20,7 @@ const ReadFolder = () => {
         const favoriteMovieIds = response.data; // Assuming backend returns movie IDs
         const moviesData = await Promise.all(
           favoriteMovieIds.map(async (movieId) => {
-            const movieResponse = await axios.get(
+            const movieResponse = await Axios.get(
               `http://www.omdbapi.com/?i=${movieId}&apikey=${API_KEY}`
             );
             return movieResponse.data;
