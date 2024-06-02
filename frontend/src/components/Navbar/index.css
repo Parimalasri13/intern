@@ -1,41 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap");
 
 .logo {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    padding: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 10px;
 }
 
-.lk{
-    padding: 20px;
-    text-decoration: none;
-    color:white;
+.lk {
+  padding: 20px;
+  text-decoration: none;
+  color: white;
 }
 
 .top-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Ensures space between header and options */
-    background-color: #1c1c1c; /* Set your desired background color */
-    padding: 10px 20px; /* Adds some padding for better appearance */
-    flex-wrap: nowrap; /* Prevents wrapping of flex items */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Ensures space between header and options */
+  background-color: #1c1c1c; /* Set your desired background color */
+  padding: 10px 20px; /* Adds some padding for better appearance */
+  flex-wrap: nowrap; /* Prevents wrapping of flex items */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow */
+  position: sticky; /* Keeps the navbar at the top */
+  top: 0; /* Ensures the navbar stays at the top */
+  z-index: 1001; /* Ensures the navbar is above other elements */
 }
 
 .options {
-    display: flex;
-    align-items: center;
-    font-family: 'Poetsen One', sans-serif; ;
+  display: flex;
+  align-items: center;
+  font-family: "Poetsen One", sans-serif;
 }
 
 .header {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .title {
-    font-family: 'Poetsen One', sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    white-space: nowrap; /* Prevents text from wrapping */
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  white-space: nowrap; /* Prevents text from wrapping */
 }

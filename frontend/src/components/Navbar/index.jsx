@@ -1,19 +1,50 @@
-// Navbar.js
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './index.css';
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import "./index.css";
+import useLogout from "../../hooks/useLogout";
 
 function Navbar() {
+  const { auth } = useAuth();
+  const navigate = useNavigate();
+  const logout = useLogout();
+
+  const signOut = async () => {
+    await logout();
+    navigate("/login");
+  };
+
   return (
     <div className="top-container">
       <div className="header">
-        <img src="logo192.png" alt="logo" className="logo" />
-        <h3 className="title">For a change</h3>
+        <Link to="/" className="lk options">
+          For a change
+        </Link>
       </div>
       <div className="options">
-        <Link to="/" className='lk'>Home</Link>
-        <Link to="/read" className='lk'>Favorites</Link>
-        <Link to="/login" className='lk'>Login</Link>
+        {auth?.name ? (
+          <>
+            <Link to="/read" className="lk">
+              Favorites
+            </Link>
+            <button
+              className="lk"
+              style={{
+                backgroundColor: "transparent",
+                border: "none",
+                cursor: "pointer",
+                fontFamily: "inherit",
+              }}
+              onClick={signOut}
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <Link to="/login" className="lk">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
