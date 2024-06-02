@@ -11,7 +11,7 @@ const SignIn = () => {
   const { setAuth } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const from = location.state?.from?.pathname || "/home";
   async function handleSubmit(e) {
     e.preventDefault();
     let err = null;
@@ -74,7 +74,7 @@ const SignIn = () => {
           <i className="bx bxs-lock-alt"></i>
         </div>
         <div className="remember_forget">
-          <a href="/forget-password"> Forget Password</a>
+          <Link to="/forget-password"> Forget Password</Link>
         </div>
         <button type="submit" className="btn">
           Login

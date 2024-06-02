@@ -13,21 +13,21 @@ const Registration = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     let err = null;
-    if (!validateUsername(username)) {
-      showToast("Please enter a valid name", "");
-      return;
-    }
+    // if (!validateUsername(username)) {
+    //   showToast("Please enter a valid name", "");
+    //   return;
+    // }
     if (!validateConfirmPassword(password, confirmPassword)) {
       showToast("Please enter the same Password and Confirm Password", "");
       return;
     }
-    if (!validatePassword(password)) {
-      showToast(
-        "Please enter a valid password and length should exceed 6 characters",
-        ""
-      );
-      return;
-    }
+    // if (!validatePassword(password)) {
+    //   showToast(
+    //     "Please enter a valid password and length should exceed 6 characters",
+    //     ""
+    //   );
+    //   return;
+    // }
     try {
       await axios.post("/register", {
         name: username,
