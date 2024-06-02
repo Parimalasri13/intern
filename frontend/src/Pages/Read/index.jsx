@@ -21,7 +21,7 @@ const ReadFolder = () => {
         const moviesData = await Promise.all(
           favoriteMovieIds.map(async (movieId) => {
             const movieResponse = await Axios.get(
-              `http://www.omdbapi.com/?i=${movieId}&apikey=${API_KEY}`
+              `https://www.omdbapi.com/?i=${movieId}&apikey=${API_KEY}`
             );
             return movieResponse.data;
           })
