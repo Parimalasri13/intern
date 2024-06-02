@@ -37,4 +37,4 @@ This is a movie library web application built using React for the frontend, Node
 ## Links
 
 
-- [Live Demo]  
+- [Live Demo]  `https://fun-and-chill.vercel.app/`
