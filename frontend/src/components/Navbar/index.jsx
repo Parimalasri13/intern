@@ -18,12 +18,15 @@ function Navbar() {
     <div className="top-container">
       <div className="header">
         <Link to="/" className="lk options">
-          For a change
+          Fun and Chill
         </Link>
       </div>
       <div className="options">
         {auth?.name ? (
           <>
+            <Link to="/home" className="lk">
+              Home
+            </Link>
             <Link to="/read" className="lk">
               Favorites
             </Link>
@@ -41,9 +44,14 @@ function Navbar() {
             </button>
           </>
         ) : (
-          <Link to="/login" className="lk">
-            Login
-          </Link>
+          <>
+            <Link to="/register" className="lk">
+              Register
+            </Link>
+            <Link to="/login" className="lk">
+              Login
+            </Link>
+          </>
         )}
       </div>
     </div>
