@@ -19,7 +19,7 @@ This is a movie library web application built using React for the frontend, Node
 
 ## Steps to Run
 
-1. **Clone the Repository**: `git clone <repository-url>`
+1. **Clone the Repository**: `https://github.com/Parimalasri13/intern.git`
 2. **Install Dependencies**: 
    - Navigate to the frontend directory: `cd frontend` 
    - Install frontend dependencies: `npm install`
